@@ -1,0 +1,60 @@
+<section class="sectionFilter">
+  <div>
+  <form [formGroup]="filterForm" (change)="onFormChange()">
+
+    <div class="flex_group">
+      <div>
+        <input #target1 type="text" formControlName="region" placeholder="Région">
+        <app-suggestions [input]="target1" [(myinput)]="target1.value"></app-suggestions>
+      </div>
+
+      <div class="divinput">
+        <input type="text" #target2 formControlName="city" placeholder="Ville">
+        <app-suggestions   [input]="target2" [(myinput)]="target2.value"></app-suggestions>
+      </div>
+    </div>
+
+    <div class="choix_multiples" >
+        <div class="div_checkbox">
+          <input type="radio" value="achat" formControlName="status">
+          <label>Achat</label>
+        </div>
+
+       <div class="div_checkbox">
+        <input type="radio"  value="location" formControlName="status">
+        <label>Location</label>
+      </div>
+
+    </div>
+
+    <hr>
+
+    <div class="choix_multiples">
+      <div *ngFor="let data of typeData" class="div_checkbox">
+        <input type="checkbox"  [value]="data" name="type" (change)="onCheckChange($event)" />
+        <label> {{data}}  </label>
+      </div>
+    </div>
+
+    <hr>
+    <div>
+      <div class="custom-slider">
+        <ng5-slider formControlName="price" (userChangeEnd)="onFormChange()" [options]="optionsRangeSlider1" ></ng5-slider>
+      </div>
+    </div>
+
+    <div class="flex_group">
+
+    <p class="nombre-resultat">Resultats trouvés :
+      <span>{{numberResult != -1 ? numberResult :'Choisissez vos filtres'}}</span>
+    </p>
+    <button class="btn-submit btn btn-primary" (click)="navigate()"
+            type="button" style="border-radius: 25px; height: 3rem;">
+      Rechercher
+    </button>
+
+    </div>
+  </form>
+  </div>
+
+</section>

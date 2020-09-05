@@ -1,0 +1,63 @@
+<img *ngIf="miniature" style="height: 70px" src="{{this.miniature}}" alt="">
+
+<form #formulaire="ngForm" >
+
+  <div>
+    <label > Photo Pincipale
+      <input type="file" name="photo" #img (change)="showMiniature($event)" ngModel>
+    </label>
+  </div>
+
+  <div>
+    <label > Titre de l'Article
+      <input required type="text" name="titre" #titre ngModel >
+    </label>
+  </div>
+
+  <div>
+    <label > Sous titre de l'Article
+      <input required type="text" name="sousTitre" #soustitre ngModel >
+    </label>
+  </div>
+
+  <div> <h5>Le publier</h5>
+    <label > Oui <input  type="radio" value="true" name="online" [(ngModel)]="online"  > </label>
+    <label > Non <input  type="radio" value="false" name="online" [(ngModel)]="online" > </label>
+  </div>
+
+  <div> <label>Categorie
+    <select ngModel="autre" name="categorie">
+      <option *ngFor="let item of listCategorie" value="{{item}}">{{item}}</option>
+    </select>
+  </label>
+  </div>
+
+  <ckeditor tagName="textarea" required #ckeditor
+          [editor]="Editor" [(ngModel)]="model.editorData"
+          name="contenu"  (ready)="onReady($event)" ></ckeditor>
+
+</form>
+
+
+
+
+<button class="btn btn-primary" (click)="onSubmit(formulaire)">
+  {{online == 'true' ? 'Enregistrer et Publier' : 'Enregistrer Sans Publier'}}
+</button>
+<button style="margin-left: 20px" routerLink="/admin/articles" class="btn btn-danger btn-sm">Abandonner </button>
+
+<h3>Aperçu </h3>
+<hr>
+<section style="border: black 2px solid;" class="page-article col-10">
+
+  <article class="article">
+    <div class="banniere-article">
+      <img *ngIf="miniature" src="{{miniature}}"  alt="banniere article">
+    </div>
+
+    <h1 class="main-title">{{titre.value}}</h1>
+    <h2 class="under-title">{{soustitre.value }}</h2>
+    <div class="apercuArticle" [innerHTML]="model.editorData"> </div>
+  </article>
+
+</section>

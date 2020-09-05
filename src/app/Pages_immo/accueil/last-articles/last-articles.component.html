@@ -1,0 +1,28 @@
+<div class="section_expe">
+
+  <article class="mycard" *ngFor="let article of last_articles">
+    <div class="div_img">
+      <a (click)="goToThis(article)"><img src="{{article.photo}}"></a>
+    </div>
+
+    <div class="card_date">
+      <span class="span_day">{{article.date | date : 'd'}}</span>
+      <span class="span_month">{{article.date | date : 'MMMM'}}</span>
+    </div>
+
+    <div class="card_body">
+      <div class="card_body_category">{{article.categorie}}</div>
+      <h2 (click)="goToThis(article)" class="card_body_h2 underline-deco"><a>{{article.titre}}</a></h2>
+      <h3 class="card_body_h3">{{article.sousTitre  | cutText : 33}}</h3>
+      <p class="card_description">
+        {{article.contenu | cutText : 215: true}}
+      </p>
+    </div>
+
+    <p class="card_footer">
+      <span class="all_icon card_icon1"></span>Lu il y a 6min
+      <span class="all_icon card_icon2"></span>39 commentaires
+    </p>
+  </article>
+
+</div>

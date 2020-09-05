@@ -1,0 +1,41 @@
+<app-admin-filter [resultats]="immos.length" ></app-admin-filter>
+<h1> Listes des logements en Ligne <button class="btn btn-success" routerLink="new">Ajouter un Logement</button> </h1>
+<pagination-controls (pageChange)="page = $event" (pageBoundsCorrection)="pageChanged($event)" previousLabel="précédent" nextLabel="suivant"></pagination-controls>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">Reference</th>
+    <th scope="col">Titre</th>
+    <th scope="col">Statut</th>
+    <th scope="col">Type</th>
+    <th scope="col">Date de publication</th>
+    <th scope="col">Vendeur </th>
+    <th scope="col">Actions</th>
+    <th scope="col">Offres</th>
+    <th scope="col">Correspondances</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let immo of immos | paginate : {itemsPerPage:100, currentPage : page }">
+    <th scope="row">{{immo.reference}}</th>
+    <td>{{immo.title}}</td>
+    <th>{{immo.status}}</th>
+    <th>{{immo.type}}</th>
+    <td>{{immo.date.toLocaleString()}}</td>
+    <td>{{immo.selleurFirstName}} {{immo.selleurName | uppercase}}</td>
+    <td>
+      <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+        <button (click)="goToThis(immo)" class="btn btn-secondary">Voir</button>
+        <button routerLink="update/{{immo.reference}}" class="btn btn-primary">Modifier</button>
+        <button class="btn btn-danger" (click)="onDelete(immo.reference)">Supprimer</button>
+      </div>
+    </td>
+    <td> De : Jean | Michel | Symba | Aurélie </td>
+    <td>Peuvent être intéréssés : Vaiana | Cebastien | </td>
+
+  </tr>
+  </tbody>
+</table>
+<pagination-controls (pageChange)="page = $event" (pageBoundsCorrection)="pageChanged($event)" previousLabel="précédent" nextLabel="suivant"></pagination-controls>
+<button class="btn btn-success" routerLink="new">Ajouter un Logement</button>

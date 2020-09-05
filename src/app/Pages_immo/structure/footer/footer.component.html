@@ -1,0 +1,79 @@
+<!-- Site footer -->
+<footer class="site-footer negativ_rounded_top">
+  <div class="container-fluid div-1">
+    <div class="row">
+
+      <div class="col-sm-12 col-md-9 col-lg-5">
+        <h6>A propos de {{agence.nomAgence}}</h6>
+        <p class="text-justify">{{agence.presentation}}</p>
+      </div>
+
+      <div class="col-xs-2 col-md-3 col-lg-2">
+        <h6>Catégories</h6>
+        <ul class="footer-links">
+          <li></li>
+          <li><a>Acheter</a></li>
+          <li><a>Louer</a></li>
+          <li><a>Vendre</a></li>
+          <li><a>Mettre en location</a></li>
+          <li><a>Faire gérer</a></li>
+        </ul>
+      </div>
+
+      <div *ngIf="agence.address" class="col-xs-12 col-md-9 col-lg-3 div-contact">
+        <h6>L'agence</h6>
+        <aside class="footer-links contact-footer">
+
+          <div>
+            <div class="les-icons position-icon"></div>
+            <p> {{agence.address.street}}<br> {{agence.address.postal_code + ' '+  agence.address.city}} </p>
+          </div>
+
+          <div>
+            <div class="les-icons tel-icon"></div>
+            <p>{{agence.fixe1}}</p>
+          </div>
+
+          <div>
+            <div class="les-icons mail-icon"></div>
+            <p>{{agence.mail1}}</p>
+          </div>
+
+        </aside>
+      </div>
+
+      <div class="col-xs-6 col-md-3 col-lg-2">
+        <h6>Mentions</h6>
+        <ul class="footer-links">
+          <li><a>A propos de nous</a></li>
+          <li><a>Nous contacter</a></li>
+          <li><a>CGV</a></li>
+          <li><a>Données Personnelles</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <hr>
+
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-sm-6 col-xs-12">
+        <p class="copyright-text">Copyright &copy; 2020 Tous droits réservés par
+          <a>{{agence.nomAgence}}</a>.
+        </p>
+      </div>
+
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <ul class="social-icons">
+          <li><a class="facebook"><i class="fa fa-facebook"></i></a></li>
+          <li><a class="twitter"><i class="fa fa-twitter"></i></a></li>
+          <li><a class="dribbble"><i class="fa fa-dribbble"></i></a></li>
+          <li><a class="linkedin"><i class="fa fa-linkedin"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>

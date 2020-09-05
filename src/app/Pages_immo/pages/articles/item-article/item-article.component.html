@@ -1,0 +1,59 @@
+<section class="page-article">
+
+  <article class="article" *ngIf="article != null">
+    <div class="banniere-article">
+      <img  src="{{article.photo}}"  alt="banniere article">
+    </div>
+
+    <h1 class="main-title">{{article.titre }}</h1>
+    <h2 class="under-title">{{article.sousTitre }}</h2>
+    <div class="apercuArticle" [innerHTML]="article.contenu"> </div>
+  </article>
+
+  <aside class="aside-droite">
+
+     <section *ngIf="others_articles && others_articles.length">
+         <h3>Dans la même catégorie</h3>
+
+         <div class="card-more-articles" *ngFor="let article2 of others_articles" >
+           <div (click)="goToThis(article2)" class="div-img" >
+             <img src="{{article2.photo}}" alt="">
+           </div>
+           <div class="title-and-date">
+             <h5 (click)="goToThis(article2)" >{{article2.titre}} </h5>
+             <p>{{article2.date | date : 'd/M/yy'}}</p>
+           </div>
+           <p class="short-descip">{{article2.sousTitre | cutText : 64}}</p>
+         </div>
+
+     </section>
+
+
+    <section *ngIf="last_articles && last_articles.length">
+      <h3>Les derniers Articles</h3>
+
+      <div class="card-more-articles" *ngFor="let article3 of last_articles" >
+        <div (click)="goToThis(article3)" class="div-img" >
+          <img src="{{article3.photo}}" alt="">
+        </div>
+        <div class="title-and-date">
+          <h5 (click)="goToThis(article3)">{{article3.titre}} </h5>
+          <p>{{article3.date | date : 'd/M/yy'}}</p>
+        </div>
+        <p class="short-descip">{{article3.sousTitre | cutText : 64}}</p>
+      </div>
+
+    </section>
+
+    <div *ngIf="!(last_articles && last_articles.length) && !(others_articles && others_articles.length)">
+    <hr><br><hr><br><hr><br><hr><br><hr><br><hr><br>
+    <br><br><br>
+    <hr><br><hr><br><hr><br><hr><br><hr><br><hr><br>
+    <br><br><br>
+    <hr><br><hr><br><hr><br><hr><br><hr><br><hr><br>
+    </div>
+
+  </aside>
+
+
+</section>

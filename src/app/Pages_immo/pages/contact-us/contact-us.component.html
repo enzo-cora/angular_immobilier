@@ -1,0 +1,164 @@
+
+  <div class="section-contact" *ngIf="contactUsIsOpen" #section
+       (click)="$event.stopPropagation()">
+
+    <section class="floating-block">
+
+      <div (click)="ongletChange(section,'telephone' )">
+    <span class="block-icon icon-phone"><svg height="50" width="50" viewBox="0 0 482.6 482.6"><use xlink:href="assets/images/icons/phone.svg#phone" /></svg>
+    </span>
+        <p class="paragraphes"><strong>Téléphoner</strong> <br> Téléphonez-nous</p>
+      </div>
+
+      <div (click)="ongletChange(section,'rdv')">
+    <span class="block-icon icones-map"><svg height="50" width="50" viewBox="0 0 54.757 54.757"><use xlink:href="assets/images/icons/map2.svg#map2" /></svg>
+    </span>
+        <p class="paragraphes"><strong>Rendez-vous</strong><br>Sélectionner une date</p>
+      </div>
+
+
+      <div (click)="ongletChange(section,'recontacte')">
+    <span class="block-icon icon-next"><svg height="50" width="50" viewBox="0 0 60 60"><use xlink:href="assets/images/icons/recontact.svg#recontact" /></svg>
+    </span>
+        <p class="paragraphes"> <strong>Etre recontacté</strong> <br> Laissez-nous vos coordonnées </p>
+      </div>
+
+      <div (click)="ongletChange(section,'mail')">
+    <span class="block-icon icon-next"><svg height="50" width="50" viewBox="0 0 483.3 483.3"><use xlink:href="assets/images/icons/mail2.svg#mail2" /></svg>
+    </span>
+        <p class="paragraphes"><strong> Nous contacter</strong> <br> Envoyez-nous un message</p>
+      </div>
+
+    </section>
+
+    <section class="section-cards">
+
+      <aside class="content-tab telephone">
+        <h5> Nous Téléphoner</h5>
+        <ul>
+          <hr>
+          <li>
+            <span class="block-iconv2">
+              <svg height="50" width="50" viewBox="0 0 60 60"><use xlink:href="assets/images/icons/smartphone2.svg#smartphone2" /></svg>
+            </span> <span class="span">Portable : </span>&nbsp; {{agence.portable}}
+          </li>
+          <hr>
+          <li> <span class="block-iconv2"><svg height="50" width="50" viewBox="0 0 482.6 482.6"><use xlink:href="assets/images/icons/phone.svg#phone" /></svg>
+        </span> <span class="span"> Fixe 1 : </span>&nbsp; {{agence.fixe1}}</li>
+          <hr>
+          <li *ngIf="agence.fixe2"> <span class="block-iconv2"><svg height="50" width="50" viewBox="0 0 482.6 482.6"><use xlink:href="assets/images/icons/phone.svg#phone" /></svg>
+        </span> <span class="span">Fixe 2 :</span>&nbsp; {{agence.fixe2}}</li>
+        </ul>
+      </aside>
+
+      <aside  class="content-tab rdv">
+        <div class="form-contact">
+          <div class="wrap-contact100" style="display: block;">
+            <form class="contact100-form validate-form">
+          <span class="contact100-form-title">
+          Prendre RDV
+          </span>
+              <div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                <span class="label-input100">Sélectionner une date</span>
+                <input class="input100" type="date" name="date" placeholder="Entrez votre adresse mail">
+                <span class="focus-input100"></span>
+              </div>
+              <div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                <span class="label-input100">Mail</span>
+                <input class="input100" type="text" name="email" placeholder="Entrez votre adresse mail">
+                <span class="focus-input100"></span>
+              </div>
+              <div class="container-contact100-form-btn">
+                <p style="margin-bottom: 0.5rem;">Nous vous recontacterons par téléphone dès reception de votre demande</p>
+                <button class="contact100-form-btn">
+              <span>
+              Envoyer
+              <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+              </span>
+                </button>
+              </div>
+            </form>
+            <span class="contact100-more">
+          Vous pouvez aussi nous contacter au <span class="contact100-more-highlight"> {{agence.fixe1}} (gratuit)</span>
+          </span>
+          </div>
+        </div>
+      </aside>
+
+      <aside  class="content-tab recontacte">
+        <div class="form-contact">
+          <div class="wrap-contact100" style="display: block;">
+            <form class="contact100-form validate-form">
+          <span class="contact100-form-title">
+          Etre recontacté
+          </span>
+              <div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                <span class="label-input100">Mail</span>
+                <input class="input100" type="text" name="email" placeholder="Entrez votre adresse mail">
+                <span class="focus-input100"></span>
+              </div>
+              <div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                <span class="label-input100">Téléphone</span>
+                <input class="input100" type="text" name="email" placeholder="Entrez votre numero de téléphone">
+                <span class="focus-input100"></span>
+              </div>
+              <div class="container-contact100-form-btn">
+                <p style="margin-bottom: 0.5rem;">Nous vous recontacterons par téléphone dès reception de votre demande</p>
+                <button class="contact100-form-btn">
+              <span>
+              Envoyer
+              <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+              </span>
+                </button>
+              </div>
+            </form>
+            <span class="contact100-more">
+          Vous pouvez aussi nous contacter au <span class="contact100-more-highlight"> {{agence.fixe1}} (gratuit)</span>
+          </span>
+          </div>
+        </div>
+      </aside>
+
+      <aside  class="content-tab mail">
+        <div class="form-contact">
+          <div class="wrap-contact100" style="display: block;">
+            <form class="contact100-form validate-form">
+          <span class="contact100-form-title">
+          Nous contacter
+          </span>
+              <div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Name is required">
+                <span class="label-input100">Votre nom</span>
+                <input class="input100" type="text" name="name" placeholder="Entrez votre nom">
+                <span class="focus-input100"></span>
+              </div>
+              <div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                <span class="label-input100">Email</span>
+                <input class="input100" type="text" name="email" placeholder="Entrez votre adresse email">
+                <span class="focus-input100"></span>
+              </div>
+              <div class="wrap-input100 validate-input" data-validate="Message is required">
+                <span class="label-input100">Message</span>
+                <textarea class="input100" name="message" placeholder="Ecrivez votre message ici..." style="margin-top: 0px; margin-bottom: 0px; height: 110px;"></textarea>
+                <span class="focus-input100"></span>
+              </div>
+              <div class="container-contact100-form-btn">
+                <button class="contact100-form-btn">
+              <span>
+              Envoyer
+              <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+              </span>
+                </button>
+              </div>
+            </form>
+            <span class="contact100-more">
+          Vous pouvez aussi nous contacter au <span class="contact100-more-highlight"> {{agence.fixe1}} (gratuit)</span>
+          </span>
+          </div>
+        </div>
+      </aside>
+
+    </section>
+  </div>
+
+
+

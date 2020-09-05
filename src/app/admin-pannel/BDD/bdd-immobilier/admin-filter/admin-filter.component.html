@@ -1,0 +1,101 @@
+<section  class="container">
+  <form [formGroup]="filterForm" (change)="recherche()" (keydown)="onKeyDown()">
+
+  <div style="display: inline-block">
+
+    <div>
+      <label> Region <input type="text" formControlName="region"></label>
+    </div>
+
+    <div>
+      <label> Ville <input type="text" formControlName="city"></label>
+    </div>
+
+    <div>
+      <label> Code Postal <input type="text" formControlName="postal_code"></label>
+    </div>
+
+  </div>
+
+    <!-- Prix mini -->
+    <div style="display: inline-block;margin-left: 20px">
+      <div>
+        <h5>Prix</h5>
+        <label> Min <input type="number" formControlName="minPrice"> </label>
+        <label> Max <input type="number" formControlName="maxPrice"></label>
+      </div>
+
+      <div>
+        <h5>Surface </h5>
+        <label> Min <input type="number" formControlName="minSurface"> </label>
+        <label> Max <input type="number" formControlName="maxSurface"></label>
+      </div>
+    </div>
+<!--Le type + le status-->
+  <div style="display: inline-block ; margin-left: 20px">
+
+    <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+      <div class="btn-group mr-2" role="group" aria-label="First group">
+        <button *ngFor="let data of typeData ; " type="button" class="btn btn-secondary">{{data}}
+          <input type="checkbox" #target (ngInit)="isChecked(target)" [value]="data" name="type" (change)="onCheckChange($event)" />
+        </button>
+      </div>
+    </div>
+
+    <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+      <div class="btn-group mr-2" role="group" aria-label="First group">
+        <button *ngFor="let data of statusData ; " type="button" class="btn btn-secondary">{{data}}
+          <input type="checkbox" #target (ngInit)="isChecked(target)" [value]="data" name="status" (change)="onCheckChange($event)" />
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+
+    <!-- Les pieces de la maisons -->
+<div style="display: flex">
+    <div class="btn-toolbar mb-3" role="toolbar"  aria-label="Toolbar with button groups">
+      <label class="col-12">Chambre(s) ?</label>
+      <div class="btn-group mr-2" role="group" aria-label="First group">
+        <button *ngFor="let data of bedroomsData" type="button" class="btn btn-secondary">{{data}}
+          <input #target (ngInit)="isChecked(target)"  type="checkbox"  [value]="data" name="bedroom" (change)="onCheckChange($event)" />
+        </button>
+      </div>
+    </div>
+
+    <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+      <label class="col-12" >salle(s) de bains ?</label>
+      <div class="btn-group mr-2" role="group" aria-label="First group">
+        <button *ngFor="let data of bathroomsData" type="button" class="btn btn-secondary">{{data}}
+          <input type="checkbox" [value]="data" #target (ngInit)="isChecked(target)" name="bathroom" (change)="onCheckChange($event)" />
+        </button>
+      </div>
+    </div>
+
+    <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups" >
+      <label class="col-12" >salon(s) ?</label>
+      <div class="btn-group mr-2" role="group" aria-label="First group">
+        <button *ngFor="let data of living_roomData" type="button" class="btn btn-secondary">{{data}}
+          <input type="checkbox" [value]="data" #target (ngInit)="isChecked(target)" name="living_room" (change)="onCheckChange($event)" />
+        </button>
+      </div>
+    </div>
+
+    <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups" >
+      <label  class="col-12">cuisine(s) ?</label>
+      <div class="btn-group mr-2" role="group" aria-label="First group">
+        <button *ngFor="let data of kitchenData" type="button" class="btn btn-secondary">{{data}}
+          <input type="checkbox" [value]="data" #target (ngInit)="isChecked(target)" name="kitchen" (change)="onCheckChange($event)" />
+        </button>
+      </div>
+    </div>
+</div>
+
+    <h6>Resultats trouvés : {{resultats}} </h6>
+
+  </form>
+
+<!--  <code>le filtre :  {{filterShow | json}}</code>-->
+</section>

@@ -1,0 +1,174 @@
+/*-------------------- Card Profile ----------------*/
+.admin-button{
+  color: white;
+  margin-top: 1rem;
+}
+
+.frame {
+  border: 1px  solid #bababa;
+  width: 100%;
+  height: 100%;
+  color: var(--blue-fonce-color );
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin-bottom: 2.5rem;
+}
+.center {
+  background: #fff;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+}
+.profile {
+  width: 100%;
+  text-align: center;
+}
+.profile .image {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  margin: 38px auto 0 auto;
+}
+.profile .image .circle-1, .profile .image .circle-2 {
+  position: absolute;
+  box-sizing: border-box;
+  width: 76px;
+  height: 76px;
+  top: -3px;
+  left: -3px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--blue-fonce-color) var(--blue-fonce-color) var(--blue-fonce-color) transparent;
+  border-radius: 50%;
+  transition: all 1.5s ease-in-out;
+}
+.profile .image .circle-2 {
+  width: 82px;
+  height: 82px;
+  top: -6px;
+  left: -6px;
+  border-color: var(--blue-fonce-color) transparent var(--blue-fonce-color) var(--blue-fonce-color);
+}
+.profile .image img {
+  display: block;
+  border-radius: 50%;
+  background: #f5e8df;
+}
+.profile .image:hover {
+  cursor: pointer;
+}
+.profile .image:hover .circle-1, .profile .image:hover .image .circle-2, .profile .image .image:hover .circle-2 {
+  transform: rotate(360deg);
+}
+.profile .image:hover .circle-2 {
+  transform: rotate(-360deg);
+}
+.profile .name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 20px;
+}
+.profile .job {
+  font-size: 0.9rem;
+  line-height: 15px;
+}
+.profile .actions {
+  margin-top: 33px;
+}
+.profile .actions .btn {
+  display: block;
+  width: 120px;
+  margin: 0 auto 10px auto;
+  background: none;
+  border: 1px solid var(--blue-fonce-color);
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+  color: var(--blue-fonce-color);
+}
+
+.btn.deconnexion{
+  border: 1px solid var(--hot-grey)!important;
+  color: var(--hot-grey)!important;
+}
+.btn.deconnexion:hover{
+  background: var(--hot-grey)!important;
+  color: white!important;
+}
+.profile .actions .btn:hover {
+  background: var(--blue-fonce-color);
+  color: #fff;
+}
+.stats {
+  display: flex;
+  flex-direction: column;
+}
+.stats .box {
+  flex: 1;
+  box-sizing: border-box;
+  width: 6.5rem;
+  color: white;
+  background: var(--blue-fonce-color);
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.stats .box:hover {
+  background: var(--blue-fonce-color);
+  cursor: pointer;
+}
+.stats .box:nth-child(2) {
+  margin: 1px 0;
+}
+.stats span {
+  display: block;
+}
+.stats .value {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+.stats .parameter {
+  font-size: 0.8rem;
+}
+
+/*-------- partie sous le profile ----------------*/
+.spoilers-section{
+  margin: 0 1rem;
+  padding-bottom: 2rem;
+}
+.spoilers-section div{
+  display: flex;
+  align-content: flex-start;
+}
+.titles-compte{
+  color: var(--blue-fonce-color);
+  font-weight: 500;
+  font-size: 1.125rem;
+  margin: auto 0 auto 0 ;
+}
+.titles-compte:hover{
+  text-decoration: underline;
+  cursor: alias;
+}
+.icons-titles{
+  display: block;
+  margin-right: 0.5rem;
+  width: 24px;
+  height: 24px;
+  background:url("src/assets/images/icons/speaker.svg") center center no-repeat ;
+  background-size: 100% 100%;
+  transition: all 0.3s;
+}
+.icons-titles.icon-fav{
+  background:url("src/assets/images/icons/star.svg") center center no-repeat ;
+}
+.icons-titles.icon-annonces {
+  background: url("src/assets/images/icons/house.svg") center center no-repeat;
+}
+.icons-titles.icon-profile{
+  background:url("src/assets/images/icons/avatarBlack.svg") center center no-repeat ;
+}

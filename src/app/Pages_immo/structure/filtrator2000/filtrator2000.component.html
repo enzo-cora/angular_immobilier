@@ -1,0 +1,120 @@
+<h2 class="titreFiltres">Vos filtres </h2>
+<section  class="container-fluid">
+  <form [formGroup]="filterForm" (change)="recherche()" class="form-2000">
+
+    <div class="responsivGroup">
+    <div>
+
+        <div class="divinput">
+          <label for="region"> Region  </label>
+          <div>
+            <input #target1 placeholder="Ile-de-France" type="text" formControlName="region" id="region">
+            <app-suggestions [input]="target1" [(myinput)]="target1.value"></app-suggestions>
+          </div>
+
+
+        </div>
+
+        <div class="divinput">
+          <label > Ville </label>
+          <div>
+            <input #target2 placeholder="Paris" type="text" formControlName="city">
+            <app-suggestions [input]="target2" [(myinput)]="target2.value"></app-suggestions>
+          </div>
+
+        </div>
+
+        <div class="divinput">
+          <label> Code Postal </label>
+          <div>
+            <input #target3 placeholder="75235 CEDEX 05" type="text" formControlName="postal_code">
+            <app-suggestions [input]="target3" [(myinput)]="target3.value"></app-suggestions>
+          </div>
+        </div>
+    </div>
+
+    <div >
+
+        <div class="block-checkbox">
+          <div class="choix_multiples">
+            <div *ngFor="let data of typeData" class="div_checkbox">
+              <input type="checkbox" #target (ngInit)="isChecked(target)" [value]="data" name="type" (change)="onCheckChange($event)" />
+              <label> {{data}}  </label>
+            </div>
+          </div>
+        </div>
+
+    </div>
+    </div>
+
+
+
+
+
+<!-- MaxMin  prix & surface-->
+      <div class="custom-slider">
+        <ng5-slider formControlName="price" [options]="optionsRangeSlider1" (userChangeEnd)="recherche()" ></ng5-slider>
+      </div>
+
+      <div class="custom-slider">
+        <ng5-slider formControlName="surface" [options]="optionsRangeSlider2" (userChangeEnd)="recherche()" ></ng5-slider>
+      </div>
+
+
+<!-- Les pieces de la maisons -->
+    <div class="responsivGroup">
+    <div >
+
+          <div class="block-checkbox">
+            <p>Chambre(s) :</p>
+            <div class="choix_multiples">
+              <div *ngFor="let data of bedroomsData" class="div_checkbox">
+                <input type="checkbox" #target (ngInit)="isChecked(target)" [value]="data" name="bedroom" (change)="onCheckChange($event)" />
+                <label> {{data}}  </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="block-checkbox">
+            <p>salle(s) de bains :</p>
+            <div class="choix_multiples">
+              <div *ngFor="let data of bathroomsData" class="div_checkbox">
+                <input type="checkbox" #target (ngInit)="isChecked(target)" [value]="data" name="bathroom" (change)="onCheckChange($event)" />
+                <label> {{data}}  </label>
+              </div>
+            </div>
+          </div>
+
+    </div>
+
+    <div>
+
+          <div class="block-checkbox">
+            <p>salon(s) :</p>
+            <div class="choix_multiples">
+              <div *ngFor="let data of living_roomData" class="div_checkbox">
+                <input type="checkbox" #target (ngInit)="isChecked(target)" [value]="data" name="living_room" (change)="onCheckChange($event)" />
+                <label> {{data}}  </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="block-checkbox">
+            <p>cuisine(s) :</p>
+            <div class="choix_multiples">
+              <div *ngFor="let data of kitchenData" class="div_checkbox">
+                <input type="checkbox" #target (ngInit)="isChecked(target)" [value]="data" name="kitchen" (change)="onCheckChange($event)" />
+                <label> {{data}}  </label>
+              </div>
+            </div>
+          </div>
+
+    </div>
+    </div>
+
+    <h6 class="find-result">Resultats trouvés : <strong>{{resultats}} </strong></h6>
+
+  </form>
+
+<!--  <code>le filtre :  {{filterShow | json}}</code>-->
+</section>

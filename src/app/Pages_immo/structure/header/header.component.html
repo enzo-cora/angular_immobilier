@@ -1,0 +1,80 @@
+<div *ngIf="compteIsOpen" style="height: 4.5rem;"></div>
+<div class="GENERAL">
+<header class="menu-header" [ngClass]="{'setFixed' : compteIsOpen}">
+  <a *ngIf="agence.nomAgence" routerLink="/immobilier/accueil" class="mini-screen logo-header">TATM</a>
+  <a *ngIf="agence.nomAgence"  routerLink="/immobilier/accueil" class="normal-screen logo-header">{{agence.nomAgence}}</a>
+
+  <nav [ngClass]="{'nav-part1': true, 'menu-isOpen': menuIsOpen}"  >
+    <ul class="menu-ul ul1">
+      <li routerLink="/immobilier/achat" routerLinkActive="active-link">Acheter</li>
+      <li routerLink="/immobilier/location" routerLinkActive="active-link">Louer</li>
+      <li> Vendre </li>
+      <li routerLink="/immobilier/articles" routerLinkActive="active-link"> Articles </li>
+    </ul>
+
+    <ul class="menu-ul ul2">
+      <li routerLink="/immobilier/aPropos">L'Agence </li>
+    </ul>
+  </nav>
+
+  <div class="contact-btn-parent" >
+    <div class="contact-us" (click)="contactUs.activeContactUsv2($event)">
+      <span class="block-icon icon-message"><svg height="50" width="50" viewBox="0 0 60 60"><use xlink:href="assets/images/icons/comment.svg#comment" /></svg>
+      </span>
+      <span class="normal-screen ">Contact</span>
+      <span class="mini-screen ">.</span>
+      <app-contact-us></app-contact-us>
+    </div>
+  </div>
+
+
+
+  <div [ngClass]="{'div-humburger': true, 'humberger-isOpen': menuIsOpen}" #humburger
+       (mouseup)="onOpenMenu(humburger,$event)">
+      <span class="span-humburger"></span>
+  </div>
+
+  <nav class="nav-part2" (click)="onOpenCompte()">
+    <aside class="compte">
+      <p>Mon compte</p>
+      <div class="icon-compte"></div>
+    </aside>
+  </nav>
+
+</header>
+<!-- ------------------------------ COMPTE ------------------------------- -->
+<section [ngClass]="{'mon-compte': true, 'compte-isOpen': compteIsOpen}">
+
+  <aside *ngIf="isAuth" class="isAuth">
+    <app-profil></app-profil>
+  </aside>
+
+  <aside *ngIf="!isAuth" class="isnotAuth" #section>
+    <nav class="authentification-onglets">
+      <div (click)="ongletChange(section,$event)" data-title="connexion" class="isActive">Connexion</div>
+      <div (click)="ongletChange(section,$event)" data-title="inscription">Inscription</div>
+    </nav>
+
+    <section >
+      <div class="connexion contenu-section isActive">
+        <app-login></app-login>
+      </div>
+
+      <div class="inscription contenu-section">
+        <app-register></app-register>
+      </div>
+    </section>
+  </aside>
+
+</section>
+
+
+<main [@fadeAnimation]="outlet.isActivated ? outlet.activatedRoute : ''">
+  <div style="min-height: 100vh;">
+    <router-outlet #outlet="outlet"></router-outlet>
+  </div>
+</main>
+
+  <app-footer *ngIf="showFooter" [agence]="agence"> </app-footer>
+
+</div>

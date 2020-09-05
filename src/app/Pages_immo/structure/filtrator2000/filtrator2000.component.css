@@ -1,0 +1,140 @@
+
+.titreFiltres{
+  margin-bottom: 2rem ;
+  text-align: center;
+  color: var(--orange-color);
+  border: 1px solid black;
+  border-left: none;
+  border-right: none;
+  padding-bottom: 1rem;
+}
+
+/* Les inpute Text*/
+.divinput{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem ;
+  position: relative;
+}
+
+
+/*------------- Checbox Choix multiples ----------------*/
+.block-checkbox{
+  margin-bottom: 1rem;
+}
+.block-checkbox p{
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.choix_multiples{
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  color: white;
+  overflow: hidden;
+  width: fit-content;
+}
+
+.div_checkbox{
+  position: relative;
+  height: 36px;
+}
+
+.div_checkbox input{
+  background: var(--hot-grey);
+  /*box-shadow: inset 0 0 2px #484848;*/
+  cursor: pointer;
+  height: 36px;
+  width: 100%;
+  -webkit-appearance: none;
+  transition: all 0.2s;
+  outline: none;
+}
+
+.div_checkbox input:hover{
+  background: var(--blue-fonce-color);
+}
+
+
+.div_checkbox input:checked[type="checkbox"]{
+  background: var(--blue-fonce-color);
+  box-shadow: inset 0 0 4px #3a4c81;
+}
+
+.div_checkbox label{
+  padding: 0 1rem;
+  position: relative;
+  font-size: 1rem ;
+  bottom: 0;
+  transform: translateY(-36px);
+  pointer-events: none;
+}
+
+
+/*---------Range-Draggable---------------*/
+
+.custom-slider{
+  margin-top: 1.2rem;
+}
+.custom-slider::ng-deep .ng5-slider::ng-deep .ng5-slider-bar::ng-deep {
+  background: #ffe4d1;
+  height: 2px;
+}
+.custom-slider::ng-deep .ng5-slider::ng-deep .ng5-slider-selection::ng-deep {
+  background: #ffba30;
+}
+
+.custom-slider::ng-deep .ng5-slider::ng-deep .ng5-slider-pointer::ng-deep {
+  width: 8px;
+  height: 16px;
+  top: auto; /* to remove the default positioning */
+  bottom: 0;
+  background-color: #333;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.custom-slider::ng-deep .ng5-slider::ng-deep .ng5-slider-pointer:after::ng-deep {
+  display: none;
+}
+
+.custom-slider::ng-deep .ng5-slider::ng-deep .ng5-slider-bubble::ng-deep {
+  bottom: 14px;
+}
+
+.custom-slider::ng-deep .ng5-slider::ng-deep .ng5-slider-limit::ng-deep {
+  font-weight: bold;
+  color: #ffba30;
+}
+
+.custom-slider::ng-deep .ng5-slider::ng-deep .ng5-slider-tick::ng-deep {
+  width: 1px;
+  height: 10px;
+  margin-left: 4px;
+  border-radius: 0;
+  background: #ffe4d1;
+  top: -1px;
+}
+
+.custom-slider::ng-deep .ng5-slider::ng-deep .ng5-slider-tick.ng5-slider-selected::ng-deep {
+  background: #ffba30;
+}
+/*-----------resulats trouvés--------------------*/
+.find-result strong{
+  font-size: 1.3rem;
+  color: var(--orange-color);
+}
+
+@media screen and (max-width: 1050px) {
+  .responsivGroup{
+    display: flex;
+    justify-content: space-between;
+  }
+
+}
+@media screen and (max-width: 720px) {
+  .responsivGroup{
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,7 @@
+<section class="main-section" *ngIf="isActive && suggestions">
+  <div>
+    <ul class="ul-suggestion">
+      <li (mousedown)="setfilter(item)" *ngFor="let item of suggestions">{{item}}</li>
+    </ul>
+  </div>
+</section>

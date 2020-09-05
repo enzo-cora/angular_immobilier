@@ -1,0 +1,38 @@
+<section class="mb-4">
+  <h1> Listes des articles en Ligne</h1>
+  <button class="btn btn-success mb-3" routerLink="new">Ajouter un Article</button>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Reference</th>
+      <th scope="col">Titre</th>
+      <th scope="col">Categorie</th>
+      <th scope="col">Date de publication</th>
+      <th scope="col">Actions</th>
+      <th scope="col">Statut</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let article of articles">
+      <th scope="row">{{article.reference}}</th>
+      <td>{{article.titre}}</td>
+      <td>{{article.categorie}}</td>
+      <td>{{article.date.toLocaleString()}}</td>
+      <td>
+        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+          <button (click)="goToArticle(article)" class="btn btn-secondary">Voir</button>
+          <button routerLink="update/{{article.reference}}" class="btn btn-primary">Modifier</button>
+          <button class="btn btn-danger" (click)="onDelete(article.reference)">Supprimer</button>
+        </div>
+      </td>
+      <td [ngStyle]="{color : article.online ? 'green' : 'red' }"
+      >{{article.online ? 'En ligne' : 'Hors ligne'}}</td>
+
+    </tr>
+    </tbody>
+  </table>
+
+  <button class="btn btn-success" routerLink="new">Ajouter un Article</button>
+
+</section>

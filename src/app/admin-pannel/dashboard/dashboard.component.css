@@ -1,0 +1,7 @@
+.dashboard{
+  height: 800px;
+  width: 10;
+  color: red;
+  background: url("src/assets/images/dashboard_background.jpg") fixed  ;
+  background-size: cover;
+}

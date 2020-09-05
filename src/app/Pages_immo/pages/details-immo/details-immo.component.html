@@ -1,0 +1,184 @@
+<!-- ------------------------------debut page boutique----------------------------- -->
+<section class="page-detail-immo">
+
+<div class="bandeau-up">
+  <h5 (click)="onReturn()"> << Revenir à la selection </h5>
+</div>
+
+<section *ngIf="logement" class=" section-logement container-fluid">
+
+    <div class="row-haut-page">
+
+      <div class="div-gauche-imgs col-xl-9 col-lg-12">
+
+          <aside class="aside-miniatures"><!--Les miniatures -->
+            <a (click)="changeImage(logement.banniere)"><img class="img-thumbnail minia " src="{{logement.banniere ? logement.banniere : 'assets/images/immo1.jpg'}}"></a>
+            <a *ngFor="let photo of logement.photos" (click)="changeImage(photo)"><img class="img-thumbnail minia " src="{{photo}}"></a>
+          </aside>
+
+
+        <aside class="aside-img-main"><!-- L'image Principale -->
+          <img *ngIf="mainImage" class="imgPrincipale img-fluid " src="{{mainImage ? mainImage : 'assets/images/immo1.jpg'}}">
+        </aside>
+      </div>
+      <article class="descriptionCourte"> <!-- Description + Prix a droite de l'image -->
+        <h2 class="status"> {{ logement.status }} </h2>
+        <div>
+          <p style="text-decoration: underline; display: inline-block; margin-right: 0.5rem; ">
+            Besoin de plus de details ?
+          </p>
+
+          <button (mousedown)="onContactUs=1" (click)="contactUs.activeContactUsv2($event)" class="btn btn-primary" style="margin-bottom: 2rem;">
+            <div class="contact-us">
+            <span><svg fill="white" height="15" width="15" viewBox="0 0 482.6 482.6"><use xlink:href="assets/images/icons/phone.svg#phone" /></svg></span>
+            Prendre rendez-vous
+              <app-contact-us *ngIf="onContactUs===1"></app-contact-us> </div></button>
+
+        </div>
+        <div class="statusTitreReference">
+          <h1 class="h1-title">{{ logement.title}}
+            <span class="favoris">
+              <svg height="50" width="50" viewBox="0 0 487.222 487.222"><use width="100" xlink:href="assets/images/icons/star.svg#star" /></svg>
+            </span>
+          </h1>
+          <p class="reference"> {{ logement.reference}} </p>
+        </div>
+
+        <div  class="prixSurfacePieces">
+          <h2>Le logement : </h2>
+          <p>{{logement.rooms}} pieces </p>
+          <p>{{logement.surface}} m²</p>
+        </div>
+        <h3 *ngIf="logement.status === 'achat' " class="prix-logement">Prix : <strong>{{logement.price | number | replaceBy : ',': ' '}} €</strong></h3>
+        <h3 *ngIf="logement.status === 'location' " class="prix-logement">Loyer : <strong>{{logement.surface * 15 | number | replaceBy :',':' '}} € par mois</strong></h3>
+      </article>
+
+  </div>
+
+  <hr>
+
+  <div class="container-page">
+    <article class="partie-gauche">
+
+      <aside class="description">
+        <h2> Description </h2>
+        <div>
+          <p><span *ngFor="let x of [1,1,1,1,1]"> {{logement.description}}</span></p>
+          <p *ngFor="let x of [1,1]"> {{logement.description}}</p>
+        </div>
+      </aside>
+
+      <hr>
+      <aside class="caracteristiques">
+        <h2>Caracteristiques</h2>
+        <ul>
+          <li>cuisine(s) {{logement.kitchen}}</li>
+          <li>Salle(s) de bain : {{logement.bathroom}}</li>
+          <li>chambre(s) : {{logement.bedroom}}</li>
+          <li>salon(s) : {{logement.living_room}}</li>
+          <li>Surf.séj : {{(logement.surface / logement.rooms + 9) | number:'1.0-0'}}</li>
+          <li>Terrasse : {{logement.terrace ? 'Oui' : 'Non' }} </li>
+          <li>Ann.const. : {{logement.rooms + 1997}}</li>
+          <li>Nb lots copro : {{( logement.rooms * 1 + 1 )* 25}}</li>
+          <li>Surface : {{logement.surface}} m²</li>
+          <li>{{logement.terrace ? 'Sans ascenseur' : 'Avec ascenseur' }} </li>
+          <li>{{logement.garage ? 'Soumis à la copropriété' : 'Non Soumis à la copropriété' }} </li>
+          <li>{{logement.kitchen ? 'cuisine(s) Indépendante' : '\'cuisine(s) non Indépendante\' ' }} </li>
+        </ul>
+      </aside>
+
+      <hr>
+      <aside class="techniques">
+        <h2>Techniques</h2>
+        <div>
+
+          <div class="div-graduation">
+            <p>Diagnostique énergetique</p>
+            <ul style="display: flex;" data-v-24c121fa="">
+              <li class="indicator__level" style="background:#0ADB9D;" data-v-24c121fa="">
+                <span class="indicator__letter" data-v-24c121fa="">A</span> <!---->
+              </li>
+              <li class="indicator__level" style="background:#61F127;" data-v-24c121fa=""><!----> <!----></li>
+              <li class="indicator__level" style="background:#CAFA02;" data-v-24c121fa=""><!----> <!----></li>
+              <li class="indicator__level" style="background:#F9DD17;" data-v-24c121fa="">
+                <span class="indicator__letter" data-v-24c121fa="">D</span> <!---->
+              </li><li class="indicator__level" style="background:#FDAD00;" data-v-24c121fa=""><!----> <!----></li>
+              <li class="indicator__level" style="background:#FC722F;" data-v-24c121fa=""><!----> <!----></li>
+              <li class="indicator__level" style="background:#D94654;" data-v-24c121fa="">
+                <span class="indicator__letter" data-v-24c121fa="">G</span> <!---->
+              </li>
+            </ul>
+          </div>
+
+          <div class="div-graduation">
+            <p>Indices émissions de GES</p>
+            <ul style="display: flex;" data-v-24c121fa=""><li class="indicator__level" style="background:#FDEAFE;" data-v-24c121fa="">
+              <span class="indicator__letter" data-v-24c121fa="">A</span> <!----></li>
+              <li class="indicator__level" style="background:#FFDEFD;" data-v-24c121fa=""><!----> <!----></li>
+              <li class="indicator__level" style="background:#F9BDFD;" data-v-24c121fa=""><!----> <!----></li>
+              <li class="indicator__level" style="background:#FB7EFF;" data-v-24c121fa="">
+                <span class="indicator__letter" data-v-24c121fa="">D</span> <!----></li>
+              <li class="indicator__level" style="background:#F651FC;" data-v-24c121fa=""><!----> <!----></li>
+              <li class="indicator__level" style="background:#E328F4;" data-v-24c121fa=""><!----> <!----></li>
+              <li class="indicator__level" style="background:#B415B9;" data-v-24c121fa="">
+                <span class="indicator__letter" data-v-24c121fa="">G</span> <!---->
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </aside>
+      <hr>
+
+    </article>
+
+    <section class="partie-droite">
+
+      <aside class="visit-aside">
+        <div class="visite-part-up">
+          <div class="div-agent_immobilier">
+            <img src="assets/images/agent_immobilier.jpg" alt="">
+          </div>
+          <div class="div-visite">
+            <h2>Voulez-vous le visiter ?</h2>
+            <p>Parlons ensemble de votre projet</p>
+            <div class="div-address">
+                <div class="div-icon-map2">
+                  <svg height="50" width="50" viewBox="0 0 54.757 54.757"><use xlink:href="assets/images/icons/map2.svg#map2" /></svg>
+                </div>
+              <ul class="ul-address">
+                <li> {{logement.address.street}}</li>
+                <li> {{logement.address.postal_code}}</li>
+                <li> En {{logement.address.region}}, à {{logement.address.city}}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="visite-part-down">
+          <p class="page-agence">Page Agence  <span class="block-icon icon-next"><svg height="50" width="50" viewBox="0 0 477.175 477.175"><use xlink:href="assets/images/icons/next.svg#next" /></svg>
+              </span></p>
+          <p class="numero-tel"> <span class="block-icon icon-smartphone"><svg height="50" width="50" viewBox="0 0 60 60"><use xlink:href="assets/images/icons/smartphone2.svg#smartphone2" /></svg></span>
+            01 54 86 98 85</p>
+          <div>
+            <div (mousedown)="onContactUs=2" (click)="contactUs.activeContactUsv2($event)" class="contact-us">
+
+            <a class="btn-contact" >
+              <span class="block-icon icon-message">
+                <svg height="50" width="50" viewBox="0 0 60 60"><use xlink:href="assets/images/icons/comment.svg#comment" /></svg>
+              </span>Contacter
+            </a>
+            <app-contact-us *ngIf="onContactUs===2"></app-contact-us> </div>
+          </div>
+
+        </div>
+      </aside>
+
+      <div class="google-map">
+        <app-google-map [address]="logement.address" ></app-google-map>
+      </div>
+    </section>
+  </div>
+</section>
+
+</section>

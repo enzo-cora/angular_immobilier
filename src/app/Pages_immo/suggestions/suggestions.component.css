@@ -1,0 +1,29 @@
+.main-section{
+  position: relative;
+  z-index: 5;
+}
+
+.main-section > div {
+  background: white;
+  width: 100%;
+  position: absolute;
+  border-radius: 0 0 4px 4px ;
+  box-shadow: 0 4px 15px -6px rgba(19, 19, 19, 0.49);;
+  max-height: 300px;
+  overflow: auto;
+
+}
+
+.ul-suggestion{
+  margin: auto;
+}
+
+.ul-suggestion li{
+  padding: 0.5rem 1.3rem;
+  cursor: pointer;
+}
+
+.ul-suggestion li:hover{
+  background: #ececec;
+}
+

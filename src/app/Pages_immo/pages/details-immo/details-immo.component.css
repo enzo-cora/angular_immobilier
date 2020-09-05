@@ -1,0 +1,452 @@
+/*---------------TolTip-Contact-Us-------------------------*/
+.contact-us{
+  position: relative;
+}
+.contact-us app-contact-us{
+  position: absolute;
+  top : 2rem;
+  right: 0;
+  z-index: 3;
+}
+@media screen and (max-width: 720px) {
+  .contact-us app-contact-us{
+    right: unset;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+/*-----------------------*/
+
+
+.container-fluid{
+  margin: 0;
+  padding: 0;
+}
+/*---------------Bandeau Supérieur --------------------*/
+.bandeau-up{
+  background: linear-gradient(to right, var(--orange-color), #ffcc00);
+  padding: 0.6rem 1rem 0.5rem 0;
+  margin-left: 6rem;
+  border-radius: 25px 0 0 25px ;
+}
+.bandeau-up h5{
+  cursor: pointer;
+
+  color: var(--gris-fonce-color);
+  background: white;
+  padding: 0.7rem 1rem ;
+  width: fit-content;
+  border-radius: 0 25px 25px 0;
+  transform: translateX(-6rem);
+  box-shadow: -1px 5px 15px -5px black;
+  font-size: 1.1rem;
+  transition: all 0.3s;
+}
+.bandeau-up h5:hover{
+  color: var(--orange-color);
+}
+/*------------Google-Map-------------------*/
+.google-map{
+  display: flex;
+  border: var(--orange-color) 1px solid ;
+  min-height: 450px;
+}
+.google-map app-google-map{
+  width: 100%; /*Ou Flex 1 marche aussi*/
+}
+/*-------------------PAGE - HAUT-gauche(images)---------------------*/
+.page-detail-immo{
+  background: white;
+}
+.section-logement{
+  padding-bottom: 8rem;
+}
+.row-haut-page{
+  margin: 0;
+  display: flex;
+}
+.div-gauche-imgs{
+  flex: 9;
+  background: #EBEDEE;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.aside-miniatures{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.minia{
+  cursor: pointer;
+  margin-right: 2rem;
+  width: 8em;
+  /*width: 110px;*/
+}
+.minia:hover{
+  transform: scale(1.1);
+  transition: transform 0.3s;
+}
+
+.aside-img-main{
+}
+.imgPrincipale {
+  background: #EBEDEE;
+  cursor: zoom-in;
+  transition: all 0.3s;
+}
+.imgPrincipale:active{
+  position: relative;
+  z-index: 8;
+  transform: scale(1.3);
+  border: black;
+  box-shadow: 0 15px 50px -10px  black;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+
+/*-------------------PAGE - HAUT-DROITE (Prix etc)---------------------*/
+
+.descriptionCourte{
+  flex: 3;
+  min-width: 365px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center ;
+  margin:0 1%;
+  padding: 0 1rem;
+}
+.statusTitreReference{
+  margin-bottom: 2rem;
+}
+.status{
+  font-size: 2rem;
+  color: var(--orange-color);
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 2.5rem;
+}
+.h1-title{
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  margin-bottom: 0.4rem;
+}
+.favoris{
+  position: relative;
+  margin:0 0 0 0.8rem;
+  top: -8px;
+  cursor: pointer;
+}
+.favoris svg{
+  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.51));
+  width: 30px;
+  height: 30px;
+  fill: var(--orange-color);
+}
+.favoris svg:hover{
+  transform: scale(1.07);
+}
+.reference{
+  margin: 0;
+  font-weight: 500;
+  color: var(--blue-fonce-color);
+}
+.prixSurfacePieces h2{
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.prixSurfacePieces p{
+  display: block;
+  width: fit-content;
+  font-size: 1rem;
+  color: white;
+  font-weight: 400;
+  box-shadow: 0 5px 15px -5px #734530;
+  background: var(--blue-fonce-color);
+  border-radius: 5px 5px;
+  padding: 2px 7px;
+}
+.prix-logement{
+  margin-top: 2rem;
+  font-size: 1.2rem!important;
+  color: var(--orange-color);
+  font-weight: 500;
+}
+.prix-logement strong{
+  font-size: 1.5rem;
+  color: var(--gris-fonce-color);
+  font-weight: 500;
+}
+/*------------------- PARTIE BASSE - CORP PAGE---------------------*/
+.container-page{
+  display: flex;
+  padding: 0rem 9%;
+}
+.partie-gauche{
+  flex: 8;
+  padding-right: 1.5rem;
+}
+.partie-droite{
+  min-width: 420px;
+  flex: 5;
+}
+/*-------------------PARTIE-BASSE - PAGE gauche (descriptions etc) ---------------------*/
+.partie-gauche > aside {
+  margin-bottom: 3rem;
+}
+.partie-gauche h2{
+  color: var(--blue-fonce-color);
+  font-size: 1.4rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  margin-bottom: 1.1rem;
+  margin-top: 2.4rem;
+}
+.partie-gauche p{
+  color: #838383;
+}
+
+.caracteristiques ul{
+  display: flex;
+  flex-wrap: wrap;
+}
+.caracteristiques li{
+  color: #838383;
+  font-size: 1.15rem;
+  margin: 0.5rem 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  font-weight: 600;
+}
+.caracteristiques li:before
+{
+ content: '|';
+  color: var(--orange-color);
+}
+.indicator__level{
+  width: 35px;
+  height: 35px;
+  color: white;
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-align: center;
+  line-height: 35px;
+}
+.techniques > div{
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  flex-wrap: wrap;
+}
+.div-graduation{
+  margin-right: 2rem;
+}
+.techniques p {
+  color: #838383;
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+/*-----------------Partie Basse - page Droite ---------------------*/
+.visit-aside hr{
+  margin-bottom: 0;
+}
+.visit-aside{
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 15px -12px #3c3c3c;
+  margin-bottom: 3rem;
+}
+.visite-part-up{
+  display: flex;
+  justify-content: flex-start;
+  padding: 2rem 1rem 2rem 1rem;
+}
+.div-agent_immobilier{
+  overflow: hidden;
+  height: 200px;
+  width: 200px;
+  border-radius: 5px;
+}
+.div-agent_immobilier img{
+  transform: translateX(-50px);
+  height: 200px;
+  width: auto;
+}
+
+.div-visite{
+  padding: 0 1.5rem;
+}
+.div-visite h2{
+  margin-top: 1.5rem;
+  color: var(--blue-fonce-color);
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+.div-visite p{
+  color: var(--orange-color);
+  font-size: 1rem;
+}
+.div-visite li{
+  color: #838383;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.div-address{
+  display: flex;
+  align-items: center;
+}
+.div-icon-map2 svg{
+  margin-right: 1rem;
+  width: 40px;
+  height: 40px;
+  fill : #838383;
+}
+.visite-part-down{
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem 1.5rem;
+}
+.visite-part-down p{
+  color: var(--blue-fonce-color);
+  font-weight: 500;
+  margin : auto 0 auto 0;
+}
+.page-agence{
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s;
+}
+.page-agence:hover{
+  transform: scale(1.1);
+}
+
+.icon-next{
+  margin-left: 0.6rem;
+  width: 19px;
+  height: 19px;
+}
+
+.block-icon{
+  display: flex;/*POUR ADAPTER LE BLOCK A LA TAILLE DE L'ICONE*/
+}
+.block-icon svg{ /*POUR QUE L'ICONE PRENNE 100% DU BLOC */
+  width: 100%;
+  height: 100%;
+}
+.numero-tel{
+  display: flex;  /*POUR ALIGNER ET CENTRER L'ICONE*/
+  align-items: center;
+}
+
+.icon-smartphone{
+  margin-right: 0.5rem;
+  width: 25px;
+  height: 25px;
+}
+
+.btn-contact{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  background-color: var(--blue-fonce-color);
+  color: white;
+  font-weight: 500;
+  padding: 0.3rem 1rem;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.icon-message{
+  width: 19px;
+  height: 19px;
+  margin-right: 0.5rem;
+}
+.btn-contact:hover{
+  background: #5073a0;
+}
+
+/*------------------Media Queries -----------------*/
+@media screen and (max-width: 1400px) {
+  .container-page{
+    display: flex;
+  }
+  .div-gauche-imgs{
+    flex-direction: column;
+  }
+  .aside-miniatures{
+    flex-direction: row;
+  }
+  .minia{
+    margin: 1rem 0;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .partie-droite{
+    min-width: unset;
+  }
+  .div-gauche-imgs{
+    margin-bottom: 3em;
+  }
+  .container-page{
+    flex-direction: column-reverse;
+  }
+  .row-haut-page {
+    flex-direction: column;
+  }
+  .aside-img-main {
+    display: flex;
+    justify-content: center;
+  }
+
+  .descriptionCourte {
+    padding: 2rem 8%;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  .descriptionCourte > * {
+    margin-right: 1.5rem;
+  }
+}
+  @media screen and (max-width: 815px) {
+    .caracteristiques ul{
+      flex-direction: column;
+    }
+    .container-page{
+      padding: 2rem 4%;
+    }
+    .descriptionCourte{
+      padding: 2rem 8%;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .prixSurfacePieces p{
+      margin: 0.5rem auto;
+    }
+    .prixSurfacePieces p:last-child{
+      margin-bottom: 1.5rem;
+    }
+    .visite-part-up{
+      flex-direction: column;
+      align-items: center;
+    }
+    .visite-part-down{
+      flex-direction: column;
+      align-items: center;
+    }
+    .visite-part-down > *{
+      margin: 1rem!important;
+    }
+}
+

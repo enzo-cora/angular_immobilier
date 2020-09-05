@@ -1,0 +1,142 @@
+<section class="container  pb-5">
+  <div *ngIf="agence" class="row">
+
+    <div class="col-6">
+      <h1> L'agence </h1>
+
+      <h5>Généralités sur l'Agence</h5>
+      <p> Nom de l'agence: <strong>{{agence.nomAgence}}</strong></p>
+<!--      <div> phopos : <strong>{{agence.nomAgence}}</strong></div>-->
+      <p> fixe1 : <strong>{{agence.fixe1}}</strong></p>
+      <p> fixe2 : <strong>{{agence.fixe2}}</strong></p>
+      <p> Portable : <strong>{{agence.portable}}</strong></p>
+      <p> mail1 : <strong>{{agence.mail1}}</strong></p>
+      <p> mail2 : <strong>{{agence.mail2}}</strong></p>
+      <p> horaires : <strong>{{agence.horraires}}</strong></p>
+      <p> jours d'ouverture : <strong>{{agence.jours}}</strong></p>
+      <h5>Adresse Agence : </h5>
+      <ul>
+        <li>Pays : <strong> {{agence.address.country}}</strong></li>
+        <li>Region : <strong> {{agence.address.region}}</strong></li>
+        <li>Ville : <strong> {{agence.address.city}}</strong></li>
+        <li>Code Postal : <strong> {{agence.address.postal_code}}</strong></li>
+        <li>Longitude : <strong> {{agence.address.longitude}}</strong></li>
+        <li>Latitude : <strong> {{agence.address.latitude}}</strong></li>
+      </ul>
+      <p> jours d'ouverture : <strong>{{agence.jours}}</strong></p>
+
+      <h5>Le gérant Agence</h5>
+      <p> Nom gerant : <strong>{{agence.gerant.nom}}</strong></p>
+      <p> Prenom gerant : <strong>{{agence.gerant.prenom}}</strong></p>
+      <!--    <p> Prenom gerant : <strong>{{agence.gerant.prenom}}</strong></p>-->
+    </div>
+
+    <div class="col-6">
+      <form  #formulaire="ngForm" (ngSubmit)="onSubmit(formulaire)">
+        <h5>General : </h5>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label>Nom Agence</label>
+            <input type="text" class="form-control" name="nomAgence" [ngModel]="agence.nomAgence">
+          </div>
+
+          <div class="col-md-6 mb-3">
+          <label>Portable</label>
+          <input type="number" class="form-control" name="portable" [ngModel]="agence.portable">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label>Fixe 1</label>
+            <input type="text" class="form-control" name="fixe1" [ngModel]="agence.fixe1">
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label>Fixe 2</label>
+            <input type="number" class="form-control" name="fixe2" [ngModel]="agence.fixe2">
+          </div>
+        </div>
+
+        <div >
+          <label>Mail 1</label>
+          <input type="email" class="form-control" name="mail1" [ngModel]="agence.mail1">
+        </div>
+
+        <div >
+          <label>Mail 2</label>
+          <input type="email" class="form-control" name="mail2" [ngModel]="agence.mail2">
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label>Horaires d'ouverture</label>
+            <input type="text" class="form-control" name="horraires" [ngModel]="agence.horraires">
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label>Jours d'ouverture</label>
+            <input type="jours" class="form-control" name="jours" [ngModel]="agence.jours">
+          </div>
+        </div>
+
+        <h5>Adresse : </h5>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label>Pays</label>
+            <input type="text" class="form-control" name="country" [ngModel]="agence.address.country">
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label>Region</label>
+            <input type="text" class="form-control" name="region" [ngModel]="agence.address.region">
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label>Ville</label>
+            <input type="text" class="form-control" name="city" [ngModel]="agence.address.city">
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label>Code Postal</label>
+            <input type="number" class="form-control" name="postal_code" [ngModel]="agence.address.postal_code">
+          </div>
+        </div>
+
+          <div >
+            <label>Rue </label>
+            <input type="text" class="form-control" name="street" [ngModel]="agence.address.street">
+          </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label>Longitude</label>
+            <input type="number" class="form-control" name="longitude" [ngModel]="agence.address.longitude">
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label>Latitude</label>
+            <input type="number" class="form-control" name="latitude" [ngModel]="agence.address.latitude">
+          </div>
+        </div>
+
+        <h5>Gerant : </h5>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label>Prenom gerant</label>
+            <input type="text" class="form-control" name="prenom" [ngModel]="agence.gerant.prenom">
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label>Nom gerant</label>
+            <input type="text" class="form-control" name="nom" [ngModel]="agence.gerant.nom">
+          </div>
+        </div>
+
+        <hr class="mb-4">
+        <button class="btn btn-primary btn-lg btn-block" type="submit">Valider les changements</button>
+      </form>
+    </div>
+
+  </div>
+</section>

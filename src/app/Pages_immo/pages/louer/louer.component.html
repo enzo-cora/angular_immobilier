@@ -1,0 +1,136 @@
+<div class="pageLocation">
+  <aside class="banner negativ_rounded_bottom">
+    <div class="banner-titles">
+      <h1 class="underline-deco">LOUER : immobilier appartement et maison</h1>
+      <p> Nous vous accompagnons tout au long de votre projet immobilier</p>
+      <button (click)="contactUs.activeContactUsv2($event)" class="btn btn-primary">Nous contacter
+        <div class="contact-us"> <app-contact-us></app-contact-us> </div>
+      </button>
+
+    </div>
+  </aside>
+
+  <section class="whyUs">
+    <h3 class="underline-deco" >Pourquoi nous choisir ? </h3>
+
+        <div class="template-whyUs">
+          <app-whyus color="var(--gris-fonce-color)"></app-whyus>
+        </div>
+
+  </section>
+
+  <div style="background: white;">
+
+  <div class="grid-page" >
+    <aside class="filter">
+      <div class="template-pagination">
+        <app-filtrator2000 status="location" ></app-filtrator2000>
+      </div>
+    </aside>
+
+    <section >
+
+      <div>
+        <pagination-controls (pageChange)="page = $event" (pageBoundsCorrection)="pageChanged($event)"
+                             class="pagination-haute" previousLabel="précédent" nextLabel="suivant"></pagination-controls>
+        <h2 class="title-items underline-deco">Nos logements en locations</h2>
+      </div>
+
+      <div class="grid-body-items">
+      <article class="item-immo" *ngFor="let immo of logements | paginate : {itemsPerPage:12, currentPage : page }">
+
+        <div class="my_card" #section id="{{immo.reference}}" (ngInit)="ancreToGo()">
+
+          <div class="color">
+            <div class="color1"></div>
+            <div class="color2"></div>
+          </div>
+
+          <div class="container-tabs">
+            <nav>
+              <ul  class="header-tab" >
+                <li data-title="resume" class="isActive" (click)="ongletChange(section,$event)">Résumé</li>
+                <li data-title="details" (click)="ongletChange(section,$event)">Details</li>
+                <li data-title="localisation" (click)="ongletChange(section,$event)">Localisation</li>
+              </ul>
+            </nav>
+
+            <div class="body-tab">
+
+              <div class="isActive content-tab resume">
+                <p class="titre1">{{immo.status | uppercase}}</p>
+                <h3 class="main-card-title" routerLink="details/{{immo.reference}}" [queryParams]="{page : page}">{{immo.title | titlecase}}</h3>
+                <p class="desription-card"> {{immo.description}}</p>
+
+                <div class="prixFlex">
+                  <p class="prix-location">Prix : <strong>{{ immo.surface * 15 | number | replaceBy :',':' ' }}€/mois</strong> </p>
+                  <div class="card-footer">
+                    <p class="card-footer-items">Surface : <strong>{{immo.surface}}m²</strong></p>
+                    <p class="card-footer-items">Pièce(s) : <strong>{{immo.rooms}}</strong></p>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="content-tab localisation">
+                <p class="titre1">ADRESSE</p>
+                <h3 class="card-title-address"><strong>En {{immo.address.country}}</strong>, {{immo.address.region}}</h3>
+                <div class="desription-address">
+                  <p>Ville : <strong> {{immo.address.city}}</strong> </p>
+                  <p >Code Postal : <strong>{{immo.address.postal_code}}</strong></p>
+                  <p >Rue: <strong>{{immo.address.street}}</strong></p>
+                  <p >Longitude: <strong>{{immo.address.longitude}}</strong></p>
+                  <p >Latitude: <strong>{{immo.address.latitude}}</strong></p>
+                </div>
+
+                  <div class="card-footer">
+                    <p class="card-footer-items">Surface : <strong>{{immo.surface}}m²</strong></p>
+                    <p class="card-footer-items">Pièce(s) : <strong>{{immo.rooms}}</strong></p>
+                  </div>
+
+              </div>
+
+              <div class="content-tab details">
+                <p class="titre1">MAISON</p>
+                <h3 class="reference-title" routerLink="details/{{immo.reference}}" [queryParams]="{page : page}">
+                  <strong> Référence </strong>:  {{immo.reference}}
+                </h3>
+
+                <div class="list-details">
+                  <ul>
+                    <li class="list-details-item"> {{immo.bedroom}} chambre(s)</li>
+                    <li class="list-details-item"> {{immo.living_room}} salon(s)</li>
+                    <li class="list-details-item"> {{immo.bathroom}} salle(s) de bains</li>
+                    <li class="list-details-item"> {{immo.kitchen}} cuisine(s)</li>
+                    <li class="list-details-item"> garage : {{immo.garage ? 'oui' : 'non'}}</li>
+                    <li class="list-details-item">terrasse : {{immo.terrace ? 'oui' : 'non'}} </li>
+                  </ul>
+                </div>
+
+                  <div class="card-footer">
+                    <p class="card-footer-items">Surface : <strong>{{immo.surface}}m²</strong></p>
+                    <p class="card-footer-items">Pièce(s) : <strong>{{immo.rooms}}</strong></p>
+                  </div>
+
+              </div>
+
+            </div>
+
+            <div class="carousel-next myCarousel" (click)="nextPrevious(section,$event)"></div>
+            <div class="carousel-previous myCarousel" (click)="nextPrevious(section,$event)"></div>
+          </div>
+
+          <div class="banniere-card">
+            <img  src="{{immo.banniere}}" alt="" routerLink="details/{{immo.reference}}" [queryParams]="{page : page}">
+          </div>
+
+        </div>
+      </article>
+      </div>
+
+    </section>
+    <pagination-controls (pageChange)="page = $event" (pageBoundsCorrection)="pageChanged($event)"
+                         class="pagination-basse" previousLabel="précédent" nextLabel="suivant"></pagination-controls>
+  </div>
+  </div>
+</div>

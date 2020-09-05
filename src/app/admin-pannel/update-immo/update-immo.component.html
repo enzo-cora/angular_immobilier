@@ -1,0 +1,175 @@
+<section  class="container pb-5">
+
+  <h2>Ajouter un Logement </h2>
+  <div class="row">
+
+    <form class="col-8" [formGroup]="immoForm" (ngSubmit)="onSubmit()">
+
+      <div>
+        <img *ngIf="miniaBanniere" style="height: 70px " src="{{miniaBanniere}}" alt="">
+      </div>
+
+      <div class="mb-4">
+        <label>Banniere </label>
+        <input  class="form-control-file"  type="file" (change)="onFileChange($event)">
+      </div>
+
+      <div>
+        <img *ngFor="let photo of miniaPhotos" style="height: 70px ; padding-right: 20px;" src="{{photo}}" alt="">
+      </div>
+
+      <div class="mb-4">
+        <label>Images complementaires (miniatures)</label>
+        <input  class="form-control-file"  type="file" (change)="onFilesChange($event)" multiple>
+      </div>
+
+      <div>
+        <label> Titre de l'annonce </label>
+        <input  class="form-control"  type="text" formControlName="title">
+      </div>
+
+      <div class="row">
+        <div class="col-6 mb-3">
+          <label > Nom  vendeur </label>
+          <input  class="form-control"  type="text" formControlName="sellerName">
+        </div>
+
+        <div class="col-6 mb-3">
+          <label>Prenom Vendeur</label>
+          <input  class="form-control"  type="text" formControlName="sellerFirstName">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6 mb-3">
+          <h5>Statut : </h5>
+          <div class="form-check">
+            <input  class="form-check-input" type="radio"  value="achat" formControlName="status">
+            <label class="form-check-label"> Achat</label>
+          </div>
+          <div class="form-check">
+            <input  class="form-check-input"  type="radio"  value="location" formControlName="status">
+            <label class="form-check-label"> Location</label>
+          </div>
+        </div>
+
+        <div class="col-6 mb-3">
+          <h5>Type de biens :</h5>
+          <div class="form-check">
+            <input  class="form-check-input"  type="radio"  value="appartement" formControlName="type">
+            <label class="form-check-label"> appartement</label>
+          </div>
+          <div class="form-check">
+            <input  class="form-check-input"  type="radio"  value="maison" formControlName="type">
+            <label class="form-check-label"> maison</label>
+          </div>
+          <div class="form-check">
+            <input  class="form-check-input"  type="radio"  value="local" formControlName="type">
+            <label class="form-check-label"> local</label>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-6 mb-3">
+          <label> Prix </label>
+          <input  class="form-control"  type="number" formControlName="price">
+        </div>
+
+        <div class="col-6 mb-3">
+          <label> Surface </label>
+          <input  class="form-control"  type="number" formControlName="surface">
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <label> Description </label>
+        <textarea class="form-control" rows="5" formControlName="description"></textarea>
+      </div>
+
+
+      <div class="row mb-3">
+        <div  class="col-3">
+          <label> Chambre(s) </label>
+          <input  class="form-control"  type="number" formControlName="bedroom" (change)="onRoomsChange()">
+        </div>
+
+        <div class="col-3">
+          <label> salle(s) de bain(s)  </label>
+          <input  class="form-control"  type="number" formControlName="bathroom" >
+        </div>
+
+        <div class="col-3">
+          <label> salon(s) </label>
+          <input  class="form-control"  type="number" formControlName="living_room" (change)="onRoomsChange()">
+        </div>
+
+        <div class="col-3">
+          <label> cuisine(s) </label>
+          <input  class="form-control"  type="number" formControlName="kitchen">
+        </div>
+      </div>
+
+      <div class="form-check form-check-inline">
+        <input  class="form-check"  type="checkbox" formControlName="garage">
+        <label class="form-check-label"> Garage ? </label>
+      </div>
+
+      <div class="form-check form-check-inline mb-3">
+        <input  class="form-check"  type="checkbox" formControlName="terrace">
+        <label class="form-check-label"> Terrasse ?</label>
+      </div>
+
+      <h5>Adresse : </h5>
+
+      <div class="row">
+        <div class="col-6">
+          <label> Pays  </label>
+          <input  class="form-control"  type="text" formControlName="country">
+        </div>
+
+        <div class="col-6">
+          <label> region  </label>
+          <input  class="form-control"  type="text" formControlName="region">
+        </div>
+      </div>
+
+      <div class="row">
+        <div  class="col-6">
+          <label> Ville  </label>
+          <input  class="form-control"  type="text" formControlName="city">
+        </div>
+
+        <div class="col-6">
+          <label> Code Postal  </label>
+          <input  class="form-control"  type="number" formControlName="postal_code">
+        </div>
+      </div>
+
+      <div>
+        <label> Rue   </label>
+        <input  class="form-control"  type="text" formControlName="street">
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <label> Longitude  </label>
+          <input  class="form-control"  type="number" formControlName="longitude">
+        </div>
+
+        <div  class="col-6">
+          <label> Latitude  </label>
+          <input  class="form-control"  type="number" formControlName="latitude">
+        </div>
+      </div>
+
+      <button [disabled]="immoForm.invalid" type="submit" class="btn btn-primary mt-4 mr-3" > Modifier</button>
+      <button class="btn btn-secondary mt-4" (click)="goToThis()"> Voir</button>
+      <div>
+        <button class="btn btn-sm btn-danger mt-4" routerLink="/admin/immobilier"> Retour</button>
+      </div>
+    </form>
+  </div>
+
+</section>

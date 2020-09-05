@@ -1,0 +1,63 @@
+<div *ngIf="user">
+<div class="frame">
+  <div class="center">
+
+    <div class="profile">
+      <div class="image">
+        <div class="circle-1"></div>
+        <div class="circle-2"></div>
+        <img src="assets/images/defaultUserImage.webp" width="70" height="70" alt="image profile">
+      </div>
+
+      <div class="name">{{user.prenom | titlecase}} {{user.nom |titlecase}}</div>
+      <div class="job">{{user.isAdmin ? 'Administrateur' : 'Membre classique'}}</div>
+      <a *ngIf="user.isAdmin" class="btn btn-success admin-button" routerLink="/admin">Panneau Admin</a>
+
+      <div class="actions">
+        <button class="btn">Messages</button>
+        <button (click)="logout()" class="btn deconnexion">Deconnexion</button>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="box">
+        <span class="value">6</span>
+        <span class="parameter">Favoris</span>
+      </div>
+      <div class="box">
+        <span class="value">8</span>
+        <span class="parameter">Conversations</span>
+      </div>
+      <div class="box">
+        <span class="value">0</span>
+        <span class="parameter">Vente(s)</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<section class="spoilers-section">
+  <div>
+    <span class="icons-titles icon-alerte"></span>
+    <h3 class="titles-compte">Mes Alertes</h3>
+  </div>
+  <hr>
+  <div>
+    <span class="icons-titles icon-fav"></span>
+    <h3 class="titles-compte">Mes Favoris</h3>
+  </div>
+
+  <hr>
+  <div>
+    <span class="icons-titles icon-annonces"></span>
+    <h3 class="titles-compte">Mes Annonces</h3>
+  </div>
+
+  <hr>
+  <div>
+    <span class="icons-titles icon-profile"></span>
+    <h3 class="titles-compte">Mon Profil</h3>
+  </div>
+</section>
+</div>

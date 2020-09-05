@@ -1,0 +1,328 @@
+.GENERAL{
+  background: url("src/assets/images/maison.jpg") fixed;
+}
+
+/*---------------TolTip-Contact-Us-------------------------*/
+
+.contact-us{
+  position: relative;
+  z-index: 3;
+}
+.contact-us app-contact-us{
+  position: absolute;
+  top : 2rem;
+  right: 0;
+  z-index: 3;
+}
+@media screen and (max-width: 720px) {
+  .contact-us app-contact-us{
+    right: unset;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.block-icon{ /*METHODE PARFAITE POUR ALIGNER UNE ICONE AU CENTRE*/
+  display: flex;
+}
+.block-icon svg{ /*METHODE PARFAITE POUR ALIGNER UNE ICONE AU CENTRE*/
+  width: 100%;
+  height: 100%;
+}
+
+.contact-btn-parent{
+  flex: 2;
+  text-align: center;
+}
+
+.contact-us{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  background-color: var(--blue-fonce-color);
+  color: white;
+  font-weight: 500;
+  height: 100%;
+  padding: 2px 1rem 3px 1rem;
+  text-align: center;
+
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.icon-message{
+  width: 19px;
+  height: 19px;
+  margin-right: 0.5rem;
+}
+.contact-us:hover{
+  background: #5073a0;
+}
+
+/*----------------------------------HEADER----------------------------*/
+
+
+.menu-header{
+  background: white;
+  z-index: 5;
+  position: relative;
+  padding-left: 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 4.2rem;
+}
+
+.logo-header{
+  color: black;
+  /*text-shadow: 1px 1px 1px #a99326;*/
+  font-weight: 800 ;
+  font-size: 1.7rem ;
+}
+
+.icon-compte{
+  height: 4.5rem;
+  width: 5rem;
+  background: var(--orange-color) url("src/assets/images/icons/avatar.svg") center center no-repeat ;
+  background-size: 40px 40px;
+}
+
+/*------------------ nav partie1 --------------*/
+.nav-part1{
+  display: flex;
+  width: 100%;
+}
+
+.menu-ul {
+  margin: 0;
+  text-align: right;
+}
+.menu-ul.ul1{
+  min-width: 345px;
+  flex: 7;
+}
+.menu-ul.ul2{
+  flex: 5;
+}
+.menu-ul li {
+  outline: 0;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--gris-fonce-color);
+  display: inline-block;
+  padding: 0 1.2rem;
+}
+
+.menu-ul li:hover {
+  color: var(--orange-color);
+}
+
+.active-link{
+  border-bottom: var(--orange-color) 5px double;
+}
+
+/*--------- nav partie2-----------*/
+.nav-part2{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.compte{
+  display: flex;
+  justify-content: space-around;
+  cursor: pointer;
+}
+.compte:hover {
+  box-shadow: inset 0 0 5px var(--orange-color);
+}
+.compte p{
+  white-space: nowrap;
+  color: var(--orange-color);
+  line-height: 4.5rem;
+  font-weight: 500;
+  font-size: 1rem;
+  margin: 0 2rem;
+}
+
+.compte button {
+  margin: 0;
+}
+
+
+/*---------------- MENU HUMBERGER------------------ */
+
+.div-humburger {
+  margin-right: 1.5rem;
+  padding: 10px 0 10px 0;
+  display: none;
+  align-items: center;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+
+.span-humburger, .span-humburger::before, .span-humburger::after{
+  content: "";
+  display: block;
+  height: 2px;
+  width: 28px;
+  background: #646464;
+  position: relative;
+  transition: all 0.3s;
+}
+.span-humburger::before{
+  bottom: 11px;
+}
+
+.span-humburger::after{
+  top: 9px;
+}
+/*-------------------AU MOMENT DU CLIC HUMBERGER-----------------*/
+.nav-part1.menu-isOpen{
+  transform: translateX(0) scaleX(1);
+}
+
+.humberger-isOpen .span-humburger{
+  transform: rotate(-45deg);
+  transform-origin: center;
+  width: 40px;
+}
+.humberger-isOpen .span-humburger::after{
+  transform: rotate(-90deg);
+  transform-origin: center;
+  top: 0;
+  width: 40px;
+}
+.humberger-isOpen .span-humburger::before{
+  display: none;
+}
+
+
+/*-----------------------------------MON COMPTE----------------------------------------- */
+/*-------------------------------------------------------------------------------------- */
+
+
+/*----------------If IsAuth : Page mon compte------------------ */
+.compte-isOpen{
+  display: block;
+}
+.mon-compte{
+  overflow-y: auto ;
+  position: fixed;
+  display: none ;
+  /*transform: translateX(250px);*/
+  transition: transform 0.2s;
+  z-index: 4;
+  right: 0;
+  top: 0;
+  padding-top: 4.45rem;
+  background: white;
+  width: 30rem;
+  height: 100%;
+  box-shadow: -1px 1px 18px -10px black ;
+}
+.compte-isOpen{
+  display: block;
+}
+.setFixed{
+  position: fixed;
+  width: 100%;
+  background: white;
+  top: 0;
+  left: 0;
+}
+
+/*-------------------If IsNotAuth : Page Authentification-------------------*/
+.authentification-onglets{
+  display: flex;
+  height: 3.2rem;
+}
+.authentification-onglets div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+  text-align: center;
+  width: 100%;
+  height:100%;
+  font-weight: 500;
+  font-size: 1.2rem;
+
+  color: white;
+  border: 2px solid rgba(255, 255, 186, 0.19);
+  background: var(--orange-color);
+  box-shadow: -1px 2px 10px 3px rgba(0, 0, 0, 0.3) inset;
+}
+.authentification-onglets div:hover{
+  box-shadow: -1px 2px 10px 3px rgba(148, 148, 148, 0.3) inset;
+  cursor: pointer;
+}
+.authentification-onglets div.isActive{
+  color: var(--orange-color);
+  border: none;
+  background: none;
+  box-shadow: none;
+}
+.contenu-section{
+  display: none;
+}
+.contenu-section.isActive{
+  display: block;
+}
+
+
+/*----------------------------------------------MEDIA QUERIES ------------------------------------ */
+.mini-screen{
+  display: none;
+}
+@media screen and (max-width: 1100px) {
+  .logo-header{
+    /*flex: 1; !*Pour qu'il occupe toute la place et que le burger soit donc poussé a droite*!*/
+  }
+  .div-humburger{
+    display: flex;
+  }
+  .nav-part1{
+    display: block ;
+    transform: translateX(50%) scaleX(0);
+    transition: transform 0.2s;
+    z-index: 4;
+    position: absolute;
+    right: 0;
+    top: 4.5rem;
+    background: white;
+    border: white 1px solid;
+    width: fit-content;
+    box-shadow: -1px 1px 18px -10px black ;
+  }
+  .menu-ul{
+    margin: 0 2rem;
+  }
+  .menu-ul.UL1{
+    min-width: unset;
+  }
+  .menu-ul li{
+    text-align: left;
+    display: block;
+  }
+  .compte{
+    flex: 1;
+  }
+  .compte p{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .mini-screen{
+    display: unset;
+  }
+  .normal-screen{
+    display: none;
+  }
+  .mon-compte{
+    width: 100%;
+  }
+}
+

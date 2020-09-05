@@ -1,0 +1,233 @@
+.negativ_rounded_top{
+  position: relative;
+}
+.negativ_rounded_top:after{
+  transform: scaleY(-1);
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 8rem;
+  top: -1px;
+  left: 0;
+  background:
+    url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='565' height='65'%3E%3Cdefs%3E%3Cpath d='M0 0C21.3 8.58 34.61 13.93 39.93 16.08C195.57 78.75 369.43 78.75 525.07 16.08C530.39 13.93 543.7 8.58 565 0L565 65L0 65L0 0Z' id='f1mYZZtCx'%3E%3C/path%3E%3C/defs%3E%3Cg%3E%3Cg%3E%3Cg%3E%3Cuse xlink:href='%23f1mYZZtCx' opacity='1' fill='%23ffffff' fill-opacity='1'%3E%3C/use%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A")
+    center;
+  background-size: 100% 100%;
+}
+
+@media screen and (max-width: 1000px) {
+  .negativ_rounded_top:after{
+    height: 4rem;
+  }
+  .negativ_rounded_top{
+    padding-bottom: 4rem;
+  }
+
+}
+
+@media screen and (max-width: 500px) {
+  .negativ_rounded_top:after{
+    height: 2rem;
+  }
+  .negativ_rounded_top{
+    padding-bottom: 2rem;
+  }
+}
+
+.site-footer
+{
+  background: linear-gradient(90deg, rgba(71, 71, 71, 0.7), rgba(71, 71, 71, 0.7)) ;
+  padding: 12rem 0 20px;
+  font-size:15px;
+  line-height:24px;
+  color: #e0e0e0;
+}
+.container-fluid.div-1{
+  margin: auto;
+  width: 70%;
+}
+.site-footer hr
+{
+  border-top-color:#bbb;
+  opacity:0.5
+}
+.site-footer hr.small
+{
+  margin:20px 0
+}
+.site-footer h6
+{
+  color:#fff;
+  font-size:16px;
+  text-transform:uppercase;
+  margin-top:5px;
+  letter-spacing:2px
+}
+.site-footer a
+{
+  color:#e0e0e0;
+}
+.site-footer a:hover
+{
+  text-decoration:none;
+}
+.footer-links
+{
+  padding-left:0;
+  list-style:none
+}
+.footer-links li
+{
+  display:block
+}
+.footer-links a
+{
+  cursor: pointer;
+  color: #e0e0e0
+}
+.footer-links a:active,.footer-links a:focus,.footer-links a:hover
+{
+  color: var(--orange-color);
+  text-decoration:none;
+}
+.footer-links.inline li
+{
+  display:inline-block
+}
+.site-footer .social-icons
+{
+  text-align:right
+}
+.site-footer .social-icons a
+{
+  width:40px;
+  height:40px;
+  line-height:40px;
+  margin-left:6px;
+  margin-right:0;
+  border-radius:100%;
+  background-color:#33353d
+}
+.copyright-text
+{
+  margin:0
+}
+
+.contact-footer div{
+  display: flex;
+  align-items: center;
+  margin: 0.5rem 0;
+  margin-right: 1rem;
+}
+.contact-footer div p{
+  margin: 0;
+}
+
+.les-icons{
+  margin-right: 1rem;
+  min-width: 35px;
+  min-height: 35px;
+  background:url("src/assets/images/icons/map.svg") center center no-repeat ;
+  background-size: 100% 100%;
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+.tel-icon{
+  background:url("src/assets/images/icons/smartphone.svg") center center no-repeat ;
+}
+.mail-icon{
+  background:url("src/assets/images/icons/email.svg") center center no-repeat ;
+}
+
+/*Media Queries*/
+@media (max-width:991px)
+{
+  .site-footer [class^=col-]
+  {
+    margin-bottom:30px
+  }
+}
+@media (max-width:767px)
+{
+  .site-footer
+  {
+    padding-bottom:0
+  }
+  .site-footer .copyright-text,.site-footer .social-icons
+  {
+    text-align:center
+  }
+}
+.social-icons
+{
+  padding-left:0;
+  margin-bottom:0;
+  list-style:none
+}
+.social-icons li
+{
+  display:inline-block;
+  margin-bottom:4px
+}
+.social-icons li.title
+{
+  margin-right:15px;
+  text-transform:uppercase;
+  color:#96a2b2;
+  font-weight:700;
+  font-size:13px
+}
+.social-icons a{
+  background-color:#eceeef;
+  color:#818a91;
+  font-size:16px;
+  display:inline-block;
+  line-height:44px;
+  width:44px;
+  height:44px;
+  text-align:center;
+  margin-right:8px;
+  border-radius:100%;
+  -webkit-transition:all .2s linear;
+  -o-transition:all .2s linear;
+  transition:all .2s linear
+}
+.social-icons a:active,.social-icons a:focus,.social-icons a:hover
+{
+  color:#fff;
+  background-color:#29aafe
+}
+.social-icons.size-sm a
+{
+  line-height:34px;
+  height:34px;
+  width:34px;
+  font-size:14px
+}
+.social-icons a.facebook:hover
+{
+  background-color:#3b5998
+}
+.social-icons a.twitter:hover
+{
+  background-color:#00aced
+}
+.social-icons a.linkedin:hover
+{
+  background-color:#007bb6
+}
+.social-icons a.dribbble:hover
+{
+  background-color:#ea4c89
+}
+@media (max-width:767px)
+{
+  .social-icons li.title
+  {
+    display:block;
+    margin-right:0;
+    font-weight:600
+  }
+
+
+}

@@ -1,0 +1,47 @@
+:root {
+  --orange-color : #ffb128;
+  --blue-color: #9eb1d9;
+  --blue-fonce-color: #7695d2;
+  --hot-grey :  #848184;
+  --saumon-color : #ecba96;
+  --gris-fonce-color: #4c4c4c;
+  --gris-claire-color: #9ca8bf;
+}
+
+html,body,p,ol,ul,li,dl,dt,dd,blockquote,figure,fieldset,legend,textarea,pre,iframe,hr,h1,h2,h3,h4,h5,h6{margin:0;padding:0}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}
+ul{list-style:none}
+button,input,select,textarea{margin:0}
+html{box-sizing:border-box }
+*,*::before,*::after{box-sizing:inherit}
+iframe{border:0}
+table{border-collapse:collapse;border-spacing:0}
+td,th{padding:0}
+td:not([align]),th:not([align]){text-align:left}
+a{text-decoration: none;}
+
+
+@media screen and (max-width: 1600px) {
+  html {
+    font-size: 95%;
+    overflow-x: hidden;
+  }
+}
+
+/*@media screen and (max-width: 1475px) {
+  html {
+    font-size: 87%;
+  }
+}*/
+  /*@media screen and (max-width: 1370px) {
+    html {
+      font-size: 100%;
+    }
+  }*/
+@media screen and (max-width: 1050px) {
+  html {
+    font-size: 100%;
+    /*font-size: 95%;*/
+  }
+}
+
